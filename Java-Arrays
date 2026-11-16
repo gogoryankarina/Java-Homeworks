@@ -1,0 +1,277 @@
+public class ArrayUtil {
+
+    /**
+     * Prints positive elements of the integer array.
+     *
+     * @param n the integer array
+     */
+    public static void printPositive(int[] n) {
+        for (int x : n) {
+            if (x > 0) {
+                System.out.println(x);
+            }
+        }
+    }
+
+    /**
+     * Prints elements of the short array in reverse order.
+     *
+     * @param s the short array
+     */
+    public static void printReverse(short[] s) {
+        for (int i = s.length - 1; i >= 0; i--) {
+            System.out.println(s[i]);
+        }
+    }
+
+    /**
+     * Finds and prints the maximum element in a long array.
+     *
+     * @param l the long array
+     */
+    public static void printMax(long[] l) {
+        if (l == null || l.length == 0) return;
+        long max = l[0];
+        for (int i = 1; i < l.length; i++) {
+            if (l[i] > max) {
+                max = l[i];
+            }
+        }
+        System.out.println(max);
+    }
+
+    /**
+     * Finds and prints the minimum element in a float array.
+     *
+     * @param f the float array
+     */
+    public static void printMin(float[] f) {
+        if (f == null || f.length == 0) return;
+        float min = f[0];
+        for (int i = 1; i < f.length; i++) {
+            if (f[i] < min) {
+                min = f[i];
+            }
+        }
+        System.out.println(min);
+    }
+
+    /**
+     * Copies elements from array n to array m.
+     *
+     * @param n source array
+     * @param m target array
+     */
+    public static void copyArray(int[] n, int[] m) {
+        int length = Math.min(n.length, m.length);
+        for (int i = 0; i < length; i++) {
+            m[i] = n[i];
+            System.out.println(m[i]);
+        }
+    }
+
+    /**
+     * Sums corresponding elements of two arrays into a third array.
+     *
+     * @param arr1 first array
+     * @param arr2 second array
+     */
+    public static void sumArrays(int[] arr1, int[] arr2) {
+        int length = Math.min(arr1.length, arr2.length);
+        int[] arr3 = new int[length];
+        for (int i = 0; i < length; i++) {
+            arr3[i] = arr1[i] + arr2[i];
+            System.out.println(arr3[i]);
+        }
+    }
+
+    /**
+     * Counts how many times number k appears in the array.
+     *
+     * @param array the integer array
+     * @param k     the number to search for
+     */
+    public static void countOccurrences(int[] array, int k) {
+        int count = 0;
+        for (int x : array) {
+            if (x == k) {
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+
+    /**
+     * Prints all unique triplets from the array.
+     *
+     * @param array the integer array
+     */
+    public static void printTriplets(int[] array) {
+        int len = array.length;
+        for (int i = 0; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
+                for (int k = j + 1; k < len; k++) {
+                    System.out.println("{" + array[i] + "," + array[j] + "," + array[k] + "}");
+                }
+            }
+        }
+    }
+
+    /**
+     * Sorts array elements in descending order.
+     *
+     * @param array the integer array
+     */
+    public static void sortByDescending(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i] < array[j]) {
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+        for (int x : array) {
+            System.out.println(x);
+        }
+    }
+
+    /**
+     * Rearranges array so that evens come first and odds last.
+     *
+     * @param array the integer array
+     */
+    public static void evensFirstOddsLast(int[] array) {
+        int[] result = new int[array.length];
+        int idx = 0;
+        for (int x : array) {
+            if (x % 2 == 0) {
+                result[idx++] = x;
+            }
+        }
+        for (int x : array) {
+            if (x % 2 != 0) {
+                result[idx++] = x;
+            }
+        }
+        for (int x : result) {
+            System.out.println(x);
+        }
+    }
+
+    /**
+     * Removes all zeros from a double array.
+     *
+     * @param array the double array
+     */
+    public static void removeZeros(double[] array) {
+        for (double x : array) {
+            if (x != 0.0) {
+                System.out.println(x);
+            }
+        }
+    }
+
+    /**
+     * Prints the longest increasing subsequence in the array.
+     *
+     * @param array the integer array
+     */
+    public static void longestIncreasingSubsequence(int[] array) {
+        if (array == null || array.length == 0) return;
+        int start = 0, len = 1, bestStart = 0, bestLen = 1;
+
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > array[i - 1]) {
+                len++;
+            } else {
+                if (len > bestLen) {
+                    bestLen = len;
+                    bestStart = start;
+                }
+                start = i;
+                len = 1;
+            }
+        }
+        if (len > bestLen) {
+            bestLen = len;
+            bestStart = start;
+        }
+
+        for (int i = bestStart; i < bestStart + bestLen; i++) {
+            System.out.println(array[i]);
+        }
+    }
+
+    /**
+     * Converts a binary array representation to its decimal equivalent.
+     *
+     * @param array binary array (0s and 1s)
+     */
+    public static void binaryToDecimal(int[] array) {
+        int decimal = 0;
+        for (int i = 0; i < array.length; i++) {
+            decimal = decimal * 2 + array[i];
+        }
+        System.out.println(decimal);
+    }
+
+    /**
+     * Prints all elements above the main diagonal of a square matrix.
+     *
+     * @param matrix 2D integer array
+     */
+    public static void printAboveMainDiagonal(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = i + 1; j < matrix[i].length; j++) {
+                System.out.println(matrix[i][j]);
+            }
+        }
+    }
+
+    /**
+     * Transposes a square matrix around its main diagonal.
+     *
+     * @param matrix 2D integer array
+     */
+    public static void transposeMatrix(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+        for (int[] row : matrix) {
+            for (int val : row) {
+                System.out.println(val);
+            }
+        }
+    }
+
+    /**
+     * Checks if all rows in a matrix have an even sum, prints YES or NO.
+     *
+     * @param matrix 2D integer array
+     */
+    public static void checkRowSumsEven(int[][] matrix) {
+        boolean allEven = true;
+        for (int[] row : matrix) {
+            int sum = 0;
+            for (int val : row) {
+                sum += val;
+            }
+            if (sum % 2 != 0) {
+                allEven = false;
+                break;
+            }
+        }
+        if (allEven) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+}
