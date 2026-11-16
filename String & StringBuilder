@@ -1,0 +1,53 @@
+public class StringUtil {
+
+    /**
+     * Concatenates two strings and prints the result.
+     *
+     * @param s1 first string
+     * @param s2 second string
+     */
+    public static void concat(String s1, String s2) {
+        System.out.println(s1 + s2);
+    }
+
+    /**
+     * Concatenates two integers and a string and prints the result.
+     *
+     * @param a first number
+     * @param b second number
+     * @param s text
+     */
+    public static void concat(int a, int b, String s) {
+        System.out.println("" + a + b + s);
+    }
+
+    /**
+     * Concatenates a string, an integer, and another string.
+     *
+     * @param s1 first string
+     * @param a  number
+     * @param s2 second string
+     */
+    public static void concat(String s1, int a, String s2) {
+        System.out.println(s1 + a + s2);
+    }
+
+    /**
+     * Concatenates a string, two integers, and a second string.
+     *
+     * @param s1 first string
+     * @param a  first number
+     * @param b  second number
+     * @param s2 second string
+     */
+    public static void concat(String s1, int a, int b, String s2) {
+        System.out.println(s1 + a + b + s2);
+    }
+
+    public static void main(String[] args) {
+        concat("hello", "world");
+        concat(1, 2, "hello");
+        concat("1", 2, "hello");
+        concat("hello", 1, 2, "world");
+    }
+}
